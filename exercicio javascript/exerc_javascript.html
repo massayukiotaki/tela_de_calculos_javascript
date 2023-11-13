@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Adição dos links do Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    button {
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    input {
+      margin: 5px;
+    }
+  </style>
+  <script>
+    // Operações Matemáticas
+    function operacoesMatematicas() {
+      var valor1 = 10;
+      var valor2 = 100;
+
+      alert("Soma: " + (valor1 + valor2) +
+            "\nSubtração: " + (valor1 - valor2) +
+            "\nDivisão: " + (valor1 / valor2) +
+            "\nMultiplicação: " + (valor1 * valor2));
+    }
+
+    // Loop de 10 a 100
+    function mostrarValores() {
+      var valores = "";
+      for (var i = 10; i <= 100; i++) {
+        valores += i + ", ";
+      }
+      alert("Valores de 10 a 100: " + valores.slice(0, -2));
+    }
+
+    // Tabuada
+    function mostrarTabuada() {
+      var numero = 5;
+      var tabuada = "";
+      for (var i = 1; i <= 10; i++) {
+        tabuada += numero + " x " + i + " = " + (numero * i) + "\n";
+      }
+      alert("Tabuada do 5:\n" + tabuada);
+    }
+
+    // Tabuada com valor dinâmico
+    function mostrarTabuadaDinamica() {
+      var numero = parseInt(document.getElementById("numeroInput").value);
+      var tabuada = "";
+      for (var i = 1; i <= 10; i++) {
+        tabuada += numero + " x " + i + " = " + (numero * i) + "\n";
+      }
+      alert("Tabuada de " + numero + ":\n" + tabuada);
+    }
+
+    // Exibir pares do array
+    function exibirPares() {
+      var numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      var pares = numeros.filter(function(numero) {
+        return numero % 2 === 0;
+      });
+      alert("Números pares do array: " + pares.join(", "));
+    }
+
+    // Calcular custo final
+    function calcularCustoFinal() {
+      var custoFabrica = parseFloat(document.getElementById("custoFabrica").value) || 0;
+      var percDistribuidor = parseFloat(document.getElementById("percDistribuidor").value) || 0;
+      var percImpostos = parseFloat(document.getElementById("percImpostos").value) || 0;
+
+      var custoFinal = custoFabrica + (custoFabrica * percDistribuidor / 100) + (custoFabrica * percImpostos / 100);
+
+      document.getElementById("valorFinal").value = custoFinal.toFixed(2);
+    }
+  </script>
+  
+  
+</head>
+<body class="container">
+  <div class="mt-3">
+    <h2 class="mb-4">Operações Matemáticas</h2>
+    <button class="btn btn-primary" onclick="operacoesMatematicas()">Calcular Operações</button>
+  </div>
+
+  <div class="mt-3">
+    <h2 class="mb-4">Loop de 10 a 100</h2>
+    <button class="btn btn-primary" onclick="mostrarValores()">Mostrar Valores</button>
+  </div>
+
+  <div class="mt-3">
+    <h2 class="mb-4">Tabuada do 5</h2>
+    <button class="btn btn-primary" onclick="mostrarTabuada()">Mostrar Tabuada</button>
+  </div>
+
+  <div class="mt-3">
+    <h2 class="mb-4">Tabuada Dinâmica</h2>
+    <div class="form-group">
+      <label for="numeroInput">Digite um número: </label>
+      <input type="number" class="form-control" id="numeroInput">
+    </div>
+    <button class="btn btn-primary" onclick="mostrarTabuadaDinamica()">Mostrar Tabuada</button>
+  </div>
+
+  <div class="mt-3">
+    <h2 class="mb-4">Exibir Pares do Array</h2>
+    <button class="btn btn-primary" onclick="exibirPares()">Exibir Pares</button>
+  </div>
+
+  <div class="mt-3">
+    <h2 class="mb-4">Calcular Custo Final</h2>
+    <div class="form-group">
+      <label for="custoFabrica">Custo de Fábrica:</label>
+      <input type="number" class="form-control" id="custoFabrica">
+    </div>
+    <div class="form-group">
+      <label for="percDistribuidor">% Distribuidor:</label>
+      <input type="number" class="form-control" id="percDistribuidor">
+    </div>
+    <div class="form-group">
+      <label for="percImpostos">% Impostos:</label>
+      <input type="number" class="form-control" id="percImpostos">
+    </div>
+    <button class="btn btn-primary" onclick="calcularCustoFinal()">Calcular Custo Final</button>
+    <br>
+    <div class="form-group mt-3">
+      <label for="valorFinal">Valor Final:</label>
+      <input type="text" class="form-control" id="valorFinal" readonly>
+    </div>
+  </div>
+</body>
+</html>
